@@ -1,0 +1,21 @@
+body {
+  text-align: center;
+  font-family: sans-serif;
+  background-color: #f0fdf4;
+  padding: 20px;
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+img {
+  margin-top: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid #ccc;
+}
+

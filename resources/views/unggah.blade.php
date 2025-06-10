@@ -8,7 +8,7 @@
     </h1>
 
     <div id="loader" style="display: none;" class="flex flex-col items-center justify-center gap-2 my-6">
-      <img src="/images/loading-gif.gif" alt="Loading..." class="w-10 h-10 mx-auto" />
+      <img src="images\loading-gif.gif" alt="Loading..." class="w-10 h-10 mx-auto" />
       <p class="text-lg text-gray-700 font-medium">Memproses...</p>
     </div>
 

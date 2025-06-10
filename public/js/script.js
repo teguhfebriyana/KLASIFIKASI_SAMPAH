@@ -29,7 +29,7 @@ uploadInput.addEventListener("change", async (event) => {
   resultText.style.display = "none";
   previewImage.style.display = "none";
   loader.style.display = "block";
-  uploadBtn.disabled = true;
+  uploadBtn.style.display = "none"; // Sembunyikan tombol saat loading
 
   const reader = new FileReader();
 
@@ -49,7 +49,7 @@ uploadInput.addEventListener("change", async (event) => {
 
       try {
         const prediction = await model.predict(input).data();
-        const confidence = prediction[0]; // asumsi output 1 neuron sigmoid
+        const confidence = prediction[0];
 
         let label, percent;
         if (confidence > 0.5) {
@@ -60,14 +60,12 @@ uploadInput.addEventListener("change", async (event) => {
           percent = (1 - confidence) * 100;
         }
 
-        // ⏳ Delay selama 5 detik
-        await new Promise(resolve => setTimeout(resolve, 2000));
+        await new Promise(resolve => setTimeout(resolve, 2000)); // Delay 2 detik
 
-        // Tampilkan hasil dan gambar setelah delay
         resultText.innerText = `Hasil: ${label} (${percent.toFixed(1)}%)`;
         resultText.style.display = "block";
-        previewImage.style.display = "block";
         previewImage.src = e.target.result;
+        previewImage.style.display = "block";
 
       } catch (err) {
         resultText.innerText = "Terjadi kesalahan saat prediksi.";
@@ -76,7 +74,7 @@ uploadInput.addEventListener("change", async (event) => {
       }
 
       loader.style.display = "none";
-      uploadBtn.disabled = false;
+      uploadBtn.style.display = "inline-block"; // Tampilkan kembali tombol
     };
 
     img.src = e.target.result;
